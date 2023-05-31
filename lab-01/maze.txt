@@ -1,0 +1,32 @@
+# three rules / direction (12 total)
+
+# state 0: go north
+0 xE** -> N 0 # if north's free w/ east blocking wall, go north 
+
+0 *x** -> E 3 # if east is free, change to east
+
+0 NE** -> X 2 # if northeast is blocked, stay and change to south
+
+
+# state 3: go east
+3 *x*S -> E 3 # if south is blocked but east is free, go east
+
+3 ***x -> S 1 # if south is free, go south //
+
+3 *E*S -> X 0 # southeast are blocked, go north //
+
+
+# state 1: go south
+1 **Wx -> S 1 # if west is blocked but south is free, go south
+
+1 **x* -> W 2 # if west is free, go west
+
+1 **WS -> X 3 # if southwest is blocked, stay and change to east 
+
+
+# state 2: go west 
+2 N*x* -> W 2 # if west is free w/ north blocking wall, go west
+
+2 x*** -> N 0 # if north is free, stay and go north (not sure if works) //
+
+2 N*W* -> X 1 # need to fix state //
